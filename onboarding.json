@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "a6f29b67-5c7c-4f40-beba-c0dd3b9d76cf",
+		"name": "Onboarding",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get sdadm API token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43f8a19f-460e-4112-9eea-abcfa485bb54",
+						"type": "text/javascript",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"    var jd = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"accessTokenAdmin\", jd.access_token);    ",
+							"    postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {",
+							"        let helpers = {};",
+							"     ",
+							"        helpers.verifyValue = function verifyValue(field, value, expectedValue) {",
+							"            tests[\"Assert \" + field + \" = \" + value + \" -> \" + expectedValue] ",
+							"                = value === expectedValue;",
+							"        }",
+							"        // ...additional helpers",
+							"     ",
+							"        return helpers;",
+							"    } + '; loadHelpers();');",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{adminUserName}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{adminPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/oauth2/token",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New SwiftDil acc & KK user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fefd1d34-9ed2-46c6-a1ff-a8b08d9de6d6",
+						"type": "text/javascript",
+						"exec": [
+							"if (responseCode.code === 201) {",
+							"    var jd = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"new_user_auth\", jd.auth_string);   ",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessTokenAdmin}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"{{companyName}}\",\r\n    \"email\" : \"{{companyEmail}}\",\r\n    \"api_client_id\" : \"{{apiClientId}}\",\r\n    \"verifications_credit\" : 1000\r\n}"
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/um/users",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"um",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"    var jd = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"accessTokenUser\", jd.access_token);    ",
+							"    postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {",
+							"        let helpers = {};",
+							"     ",
+							"        helpers.verifyValue = function verifyValue(field, value, expectedValue) {",
+							"            tests[\"Assert \" + field + \" = \" + value + \" -> \" + expectedValue] ",
+							"                = value === expectedValue;",
+							"        }",
+							"        // ...additional helpers",
+							"     ",
+							"        return helpers;",
+							"    } + '; loadHelpers();');",
+							"    postman.setEnvironmentVariable(\"gui\", \"{{$timestamp}}{{$randomInt}}\");",
+							"}",
+							""
+						],
+						"id": "571c16e4-2470-45d3-96d1-df8f1090db83",
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{new_user_auth}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"type": "text",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"type": "text",
+							"value": "postman",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"type": "text",
+							"value": "swiftdiluser",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"type": "text",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/oauth2/token",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to a plan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessTokenUser}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"plan_id\" : \"{{defaultPlanId}}\"\n}"
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/profile/subscription",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"profile",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all plans",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42088999-02af-4913-98c7-84f224c6fa28",
+						"type": "text/javascript",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"    var jd = JSON.parse(responseBody);",
+							"    for(let i=0; i<jd.content.length; i++){",
+							"        if(jd.content[i].type === 'STANDARD'){",
+							"            console.log(jd.content[i].type);",
+							"            postman.setEnvironmentVariable(\"defaultPlanId\", jd.content[i].id);",
+							"            console.log(postman.getEnvironmentVariable(\"defaultPlanId\"));",
+							"            break;",
+							"        }",
+							"    }",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessTokenAdmin}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"My super custom plan\",\n    \"type\" : \"BESPOKE\",\n    \"limit\" : 10000,\n    \"rates\" : [\n        {\n            \"service_type\" : \"MONTHLY_CHARGE\",\n            \"rate\" : 99.99\n        },\n        {\n            \"service_type\" : \"PEP_CHECK\",\n            \"rate\" : 0.39\n        }\n    ]\n}\n"
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/um/memberships",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"um",
+						"memberships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user's profile details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"    var jd = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"service_user_id\", jd.id);   ",
+							"}"
+						],
+						"id": "706e1454-fcf7-433a-8f31-446cf66042ad",
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessTokenUser}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{environmentUrl}}/oauth2/userinfo",
+					"host": [
+						"{{environmentUrl}}"
+					],
+					"path": [
+						"oauth2",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

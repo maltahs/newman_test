@@ -1,0 +1,33 @@
+{
+  "id": "595d1ffa-914a-4571-b27c-72483fa52473",
+  "name": "SwiftDil-Environment",
+  "values": [
+    {
+      "key": "accessTokenUser",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJqOUpNblJfaFFQVkhHOGU5cjNpOFczQjM0cGU1VkN4TXo5ODdPYkMyTHp3In0.eyJqdGkiOiI5OTJkZjdkOC1mNDJlLTRmNWUtOWVlZC1kNzM0YWRjYjJiMGYiLCJleHAiOjE1MjczNTUxMzEsIm5iZiI6MCwiaWF0IjoxNTI3MzUxNTMxLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9hdXRoL3JlYWxtcy9zd2lmdGRpbCIsImF1ZCI6ImRlbW8iLCJzdWIiOiIyOWMyNDFkNS1lZTg5LTQ0NTItODRjYS1lYjhkODI2ZTI2OTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJkZW1vIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiODA1MDUwMjctMWUyZS00MWE0LWIxMWUtNDU0OGZhZGE1YTA5IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0KiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJjbGllbnRIb3N0IjoiMTcyLjE4LjAuMTIiLCJjbGllbnRJZCI6ImRlbW8iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtZGVtbyIsImNsaWVudEFkZHJlc3MiOiIxNzIuMTguMC4xMiIsImVtYWlsIjoic2VydmljZS1hY2NvdW50LWRlbW9AcGxhY2Vob2xkZXIub3JnIn0.ZvsbRjaNWkpLQa0KrX3IQzJ6QtK5haOHn_7pNDMdseaseMVibGLVZzh5L7KLpj3V56W31xV5JtA9_zNe80_HMkpmNBq62FVwbRDu2EZkqEIxM95eg-6lbQMSIJ1McTiWHqoidSJ9q3A_sKCl1DXkQ3XHtZrI3S0X8UiNQtJxPsJ8ICPKy4rDE3iHRpdXiHwDx4cjtQnYivw5Spt12gRBIfNTzNlc_RxkooT3iw2dfziJHhm4EfPRrUyEf3ufFSFHeqBWYlYqk8_uXkyWuG5OLNwIZ2YBa0Hp_OqZutKgfpRSVkibE1_M4H5yT6Gr8fWOzQjrn7E6vnZsCKpl73NrLA",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "accessTokenAdmin",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJqOUpNblJfaFFQVkhHOGU5cjNpOFczQjM0cGU1VkN4TXo5ODdPYkMyTHp3In0.eyJqdGkiOiJjMDZkZmZhZi03OTU4LTQzY2QtODE2Ny04YWRmNjNmMWIzMDAiLCJleHAiOjE1MjczNTU4ODAsIm5iZiI6MCwiaWF0IjoxNTI3MzUyMjgwLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9hdXRoL3JlYWxtcy9zd2lmdGRpbCIsImF1ZCI6InNkYWRtIiwic3ViIjoiNDJkMzdlOGUtODUxMi00MjI3LWFmMWEtMGY3ODVhMGE3Yzk1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2RhZG0iLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiI3M2E1ODViZC04NzQ1LTRkYTEtOGU4My0xYzE5ZGFjNjdmMGMiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sImNsaWVudElkIjoic2RhZG0iLCJjbGllbnRIb3N0IjoiMTcyLjE4LjAuMTIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtc2RhZG0iLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE4LjAuMTIiLCJlbWFpbCI6InNlcnZpY2UtYWNjb3VudC1zZGFkbUBwbGFjZWhvbGRlci5vcmciLCJhdXRob3JpdGllcyI6WyJ1bWFfYXV0aG9yaXphdGlvbiIsIm9mZmxpbmVfYWNjZXNzIiwiUk9MRV9BRE1JTiJdfQ.OGVAItJu1zDotCQfYd08E7DkSYSqE-xAyd2V6bFdeofz-4hT2icJyk__dkWk6hEQwj9wcaC1LxUL1j9mZ1lV38O_CrXi5uLdSu1Hk-C0LtthlurTlzgi_dkW4AKHasGwzNUVQXW98oh2G1eEZmWlByyjgY_8NkzAG7q91NLghoRK7mhWBiATE8SdBrMI7DHZo6LY1oBSSQmOe0Pmqz0iMGhWxqu127P3Udc2__4dQQlseJLk7CWf3FHvOQGHCHvDaCnSUelyMoDRqSLxtpgm54c96uPe_kX2ZYoQE-UPaGr34u-THqFtefudL6po3LzIMMqM1_YDM6vDf-wtkXPPpw",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "new_user_auth",
+      "value": "dGVzdDV0ZWNoOjc1ZjY0OWZjLTA3NWUtNGMyZC1iY2ZjLThmZTMxMTU5NzJkYw==",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "defaultPlanId",
+      "value": "12b2d75e-ec46-4f1d-ade4-3978cacd7483",
+      "enabled": true,
+      "type": "text"
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2018-05-26T16:42:53.564Z",
+  "_postman_exported_using": "Postman/6.0.10"
+}
